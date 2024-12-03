@@ -102,4 +102,4 @@ def menu_awal():
 
 menu_awal()
 #Diskon petani untuk pembelian
-asdasd
+print("Hello word")
