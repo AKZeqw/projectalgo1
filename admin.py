@@ -137,7 +137,7 @@ def kelola_produk_admin():
             daftar.sortby = 'status'
             print(daftar)
             inputan_id_ubah = input(f'Masukkan id produk yang ingin diubah [Pilih 1-{len(produk)}]: ')
-            if inputan_id_ubah.isdigit():
+            if inputan_id_ubah.isdigit() and inputan_id_ubah in daftar:
                 int(inputan_id_ubah)
                 if 0 < inputan_id_ubah <= len(produk):
                     print('''
