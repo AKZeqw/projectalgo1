@@ -156,7 +156,7 @@ ID PRODUK = {inputan_id_ubah}
                             if inputan == '1':
                                 clear_terminal()
                                 print(produk_dipilih)
-                                inputan_nama_produk_baru = input('Masukkan nama baru untuk produk: ').capitalize()
+                                inputan_nama_produk_baru = input('Masukkan nama baru untuk produk: ').title()
                                 produk.loc[produk['Id'] == inputan_id_ubah, 'Produk'] = inputan_nama_produk_baru
                                 inputan_konfirmasi_nama = input(f'Apakah anda yakin mengubah nama dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
                                 if inputan_konfirmasi_nama == 'iya':
