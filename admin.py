@@ -4,11 +4,6 @@ import datetime
 from prettytable import PrettyTable
 from prettytable import from_csv
 
-# Inisialisasi DataFrame untuk menyimpan data produk dan transaksi
-produk_file = 'produk_toko.csv'
-transaksi_file = 'transaksi.csv'
-petani_file = 'petani.csv'
-
 def clear_terminal():
     os.system('cls')
 
@@ -61,11 +56,7 @@ def kelola_produk_admin():
 =============================
 1. Daftar Produk
 2. Tambah Produk
-3. Edit Nama Produk
-3. Edit Stok Produk
-4. Edit Harga Produk
-5. Edit Kategori Produk
-6. Edit Status Produk
+3. Edit Produk
 7. Kembali ke Menu
 =============================
 ''')
@@ -74,7 +65,7 @@ def kelola_produk_admin():
         if inputan == '1':
             clear_terminal()
             daftar = from_csv(open('produk_toko.csv'))
-            daftar.sortby = 'kategori'
+            # daftar.sortby = 'Kategori'
             print(daftar)
             kembali()
             kelola_produk_admin()
@@ -87,7 +78,7 @@ def kelola_produk_admin():
                 if nama_produk == '':
                     kelola_produk_admin()
                     break
-                elif nama_produk not in produk['produk'].values:
+                elif nama_produk not in produk['Produk'].values:
                     kategori = input('Masukkan kategori produk: ').title()
                     harga = input('Masukkan harga produk (angka): ')
                     if harga.isdigit():
@@ -95,10 +86,10 @@ def kelola_produk_admin():
                         clear_terminal()
                         if stok.isdigit():
                             id = len(produk) + 1
-                            produk_baru = pd.DataFrame([[id,nama_produk,kategori,harga,stok]], columns=['id','produk','kategori','harga','stok'])
+                            produk_baru = pd.DataFrame([[id,nama_produk,kategori,harga,stok,'Tersedia']], columns=['Id','Produk','Kategori','Harga','Stok','Status'])
                             tabel_tambah_produk = PrettyTable()
-                            tabel_tambah_produk.field_names = ['id','produk','kategori','harga','stok']
-                            tabel_tambah_produk.add_row([id,nama_produk,kategori,harga,stok])
+                            tabel_tambah_produk.field_names = ['Id','Produk','Kategori','Harga','Stok','Status']
+                            tabel_tambah_produk.add_row([id,nama_produk,kategori,harga,stok,'Tersedia'])
                             print(tabel_tambah_produk)
                             a = 1
                             break
@@ -117,8 +108,8 @@ def kelola_produk_admin():
             while a == 1:
                 inputan_konfirmasi = input(f'Tambahkan produk {nama_produk}? (iya/tidak): ').lower()
                 if inputan_konfirmasi == 'iya':
-                    df = pd.concat([produk, produk_baru], ignore_index=True)
-                    df.to_csv('produk_toko.csv', index=False)
+                    gabung = pd.concat([produk, produk_baru], ignore_index=True)
+                    gabung.to_csv('produk_toko.csv', index=False)
                     print(f'Produk {nama_produk} berhasil di tambahkan')
                     kembali()
                     kelola_produk_admin()
@@ -129,18 +120,24 @@ def kelola_produk_admin():
                     kelola_produk_admin()
                     break
                 else:
-                    print('Inputan tidak valid')
+                    print('Inputan tidak sesuai')
                     kembali()
                     continue
         elif inputan == '3':
             daftar = from_csv(open('produk_toko.csv'))
-            daftar.sortby = 'status'
+            daftar.sortby = 'Status'
             print(daftar)
-            inputan_id_ubah = input(f'Masukkan id produk yang ingin diubah [Pilih 1-{len(produk)}]: ')
-            if inputan_id_ubah.isdigit() and inputan_id_ubah in daftar:
-                int(inputan_id_ubah)
-                if 0 < inputan_id_ubah <= len(produk):
-                    print('''
+            inputan_id_ubah = input(f'Masukkan id produk yang ingin diedit [Pilih 1-{len(produk)}]: ')
+            if inputan_id_ubah.isdigit():
+                inputan_id_ubah = int(inputan_id_ubah)
+                if 0 < int(inputan_id_ubah) <= (len(produk)):
+                    produk_dipilih = PrettyTable()
+                    produk_dipilih.field_names = ['Id','Produk','Kategori','Harga','Stok','Status']
+                    for baris in produk.values:
+                        if baris[0] == inputan_id_ubah:
+                            produk_dipilih.add_row(baris)
+                    while True:
+                        print(f'''
 =============================
           MENU EDIT
 =============================
@@ -151,27 +148,56 @@ def kelola_produk_admin():
 5. Edit Status Produk
 6. Kembali
 =============================
+ID PRODUK = {inputan_id_ubah}
+=============================
 ''')
-                    inputan = input('Pilih Menu [1-6]')
-                    if inputan.isdigit():
-                        if inputan == '1':
-                            ''''''
-                            
-                    else:
-                        print('Inputan harus berupa angka')
+                        inputan = input('Pilih Menu [1-6]: ')
+                        if inputan.isdigit():
+                            if inputan == '1':
+                                clear_terminal()
+                                print(produk_dipilih)
+                                inputan_nama_produk_baru = input('Masukkan nama baru untuk produk: ').capitalize()
+                                produk.loc[produk['Id'] == inputan_id_ubah, 'Produk'] = inputan_nama_produk_baru
+                                inputan_konfirmasi_nama = input(f'Apakah anda yakin mengubah nama dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
+                                if inputan_konfirmasi_nama == 'iya':
+                                    produk.to_csv('produk_toko.csv', index=False)
+                                    print(f'Nama produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_nama_produk_baru}.')
+                                    kembali()
+                                    clear_terminal()
+                                    continue
+                                elif inputan_konfirmasi_nama == 'tidak':
+                                    print('Nama produk gagal diubah')
+                                    kembali()
+                                    clear_terminal()
+                                    continue
+
+                                else:
+                                    print('Inputan tidak sesuai')
+                                    print('Nama produk gagal diubah')
+                                    kembali()
+                                    clear_terminal()
+                                    continue
+                            elif inputan == '6':
+                                clear_terminal()
+                                kelola_produk_admin()
+                                break
+
                 else:
-                    print('Inputan tidak valid')
+                    print('ID tidak ditemukan')
             else:
                 print('Inputan harus berupa angka')
-
-
-        elif inputan == '7':
+        elif inputan == '4':
             clear_terminal()
             menu_admin()
+        else:
+            print('Inputan harus berupa angka')
     else:
         print('Inputan harus berupa angka')
         kembali()
         kelola_produk_admin()
+
+
+
 
 
 kelola_produk_admin()
