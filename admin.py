@@ -50,7 +50,7 @@ def menu_admin():
 def menu_edit():
     produk = pd.read_csv('produk_toko.csv')
     daftar = from_csv(open('produk_toko.csv'))
-    # daftar.sortby = 'Status'
+    daftar.sortby = 'Status'
     print(daftar)
     inputan_id_ubah = input(f'Masukkan id produk yang ingin diedit [Pilih 1-{len(produk)}]: ')
     if inputan_id_ubah.isdigit():
