@@ -1,3 +1,6 @@
-id,produk,jumlah,total_harga,alamat,tanggal,penjual,pembeli,status
-Pestisida A,3,150000,jakarta,2024-12-03 10:40:15.370687,admin,jamal,dikirm
-Pestisida B,2,150000,2,2024-12-04 09:42:13.563650,petani,admin,selesai
+Id,Produk,Jumlah,Total Harga,Alamat,Waktu,Status,Alasan
+1,Jagung,50,100000,Jember,12/12/2025 19.00,Menunggu Konfirmasi,
+1,Jagung,50,100000,Jember,12/12/2025 19.00,Ditolak,Stok Habis
+1,Jagung,50,100000,Jember,12/12/2025 19.00,Diterima,
+1,Jagung,50,100000,Jember,12/12/2025 19.30,Dikirim,
+1,Jagung,50,100000,Jember,12/12/2025 19.45,Terkirim,

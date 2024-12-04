@@ -113,9 +113,9 @@ def lihat_produk():
 
 def lihat_produkg():
     try:
-        produkg = pd.read_csv('produkg.csv')
+        produk = pd.read_csv('produkg.csv')
         print("\nDaftar Produk:")
-        print(produkg.to_string(index=False))
+        print(produk.to_string(index=False))
     except FileNotFoundError:
         print("Belum ada produk yang tersedia.")
     input("\nTekan Enter untuk kembali ke menu...")

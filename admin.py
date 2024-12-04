@@ -27,23 +27,20 @@ def menu_admin():
     print('''
 ========================================================================
 1. Mengelola Produk Toko
-2. Membeli Hasil dari Petani
-3. Melihat Riwayat Transaksi
-4. Keluar
+2. Konfirmasi Pembelian
+2. Melihat Riwayat Transaksi
+3. Keluar
 ========================================================================
 ''')
 
-    inputan = input('Pilih menu: [1-5]: ')
+    inputan = input('Pilih menu: [1-3]: ')
     if inputan == '1':
         clear_terminal()
         kelola_produk_admin()
     elif inputan == '2':
         clear_terminal()
-        beli_produk_admin()
-    elif inputan == '3':
-        clear_terminal()
         riwayat_transaksi_admin()
-    elif inputan == '4':
+    elif inputan == '3':
         clear_terminal()
     else:
         print('Piihan menu tidak ditemukan')
@@ -338,5 +335,3 @@ def kelola_produk_admin():
         kembali()
         clear_terminal()
         kelola_produk_admin()
-
-# def jual_produk()
