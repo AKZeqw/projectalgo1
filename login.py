@@ -27,7 +27,7 @@ def login():
             elif role == 'petani':
                 'menu petani'
             elif role == 'pembeli':
-                'menu pembeli'
+                menu_pembeli
         else:
             print('Password salah') #Jika password salah
             kembali()
