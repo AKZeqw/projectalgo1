@@ -195,3 +195,5 @@ def menu_pembeli(username):
 
 
 menu_awal()
+
+print("hello")
