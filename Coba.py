@@ -24,4 +24,4 @@ elif a==2:
 else:
     print(b)
 
-    print("hello")
+    print("hello") global
