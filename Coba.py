@@ -23,3 +23,5 @@ elif a==2:
     print(b)
 else:
     print(b)
+
+    print("hello") global

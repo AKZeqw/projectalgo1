@@ -2,6 +2,7 @@ import csv
 import pandas as pd
 import datetime as dt
 import os
+from admin import menu_admin
 
 teks_username = r'''
  _____           _ __  __            _   
@@ -22,7 +23,7 @@ def login():
         if password == baris_user['password'].values[0]:
             role = baris_user['role'].values[0] #Mengecek role
             if role == 'admin':
-                'menu admin'
+                menu_admin()
             elif role == 'petani':
                 'menu petani'
             elif role == 'pembeli':
