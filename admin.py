@@ -15,6 +15,7 @@ def kembali():
         kembali()
 
 def menu_admin():
+    clear_terminal()
     print(r'''
 ========================================================================
  __  __  ______  _   _  _    _             _____   __  __  _____  _   _ 
@@ -49,7 +50,7 @@ def menu_admin():
 def menu_edit():
     produk = pd.read_csv('produk_toko.csv')
     daftar = from_csv(open('produk_toko.csv'))
-    daftar.sortby = 'Status'
+    # daftar.sortby = 'Status'
     print(daftar)
     inputan_id_ubah = input(f'Masukkan id produk yang ingin diedit [Pilih 1-{len(produk)}]: ')
     if inputan_id_ubah.isdigit():
@@ -189,7 +190,7 @@ ID PRODUK = {inputan_id_ubah}
                             inputan_konfirmasi = input(f'Apakah anda yakin mengubah status dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
                             if inputan_konfirmasi == 'iya':
                                 produk.to_csv('produk_toko.csv', index=False)
-                                print(f'Status produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_nama_baru}.')
+                                print(f'Status produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_status_baru}.')
                                 kembali()
                                 clear_terminal()
                                 continue
@@ -335,3 +336,5 @@ def kelola_produk_admin():
         kembali()
         clear_terminal()
         kelola_produk_admin()
+
+menu_admin()

@@ -5,3 +5,4 @@ Id,Produk,Kategori,Harga,Stok,Status
 4,Kapas,Kapas,200,200,Tersedia
 5,Beras,Beras,200,200,Tersedia
 6,Cabe,Cabe,200,200,Tidak Tersedia
+7,Pupuk,Pupuk,12000,20,Tersedia
