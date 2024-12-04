@@ -176,6 +176,7 @@ ID PRODUK = {inputan_id_ubah}
                                 print('Stok produk gagal diubah')
                                 kembali()
                                 clear_terminal()
+                                continue
                         except ValueError:
                             print("Input stok produk tidak valid. Pastikan input berupa angka.")
                             kembali()
