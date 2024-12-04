@@ -27,10 +27,9 @@ def menu_admin():
     print('''
 ========================================================================
 1. Mengelola Produk Toko
-2. Menjual Produk ke Petani dan Pembeli
-3. Membeli Hasil dari Petani
-4. Melihat Riwayat Transaksi
-5. Keluar
+2. Membeli Hasil dari Petani
+3. Melihat Riwayat Transaksi
+4. Keluar
 ========================================================================
 ''')
 
@@ -40,14 +39,11 @@ def menu_admin():
         kelola_produk_admin()
     elif inputan == '2':
         clear_terminal()
-        jual_produk_admin()
+        beli_produk_admin()
     elif inputan == '3':
         clear_terminal()
-        beli_produk_admin()
-    elif inputan == '4':
-        clear_terminal()
         riwayat_transaksi_admin()
-    elif inputan == '5':
+    elif inputan == '4':
         clear_terminal()
     else:
         print('Piihan menu tidak ditemukan')
@@ -230,8 +226,14 @@ ID PRODUK = {inputan_id_ubah}
                         continue
         else:
             print('ID tidak ditemukan')
+            kembali()
+            clear_terminal()
+            menu_edit()
     else:
         print('Inputan harus berupa angka')
+        kembali()
+        clear_terminal()
+        menu_edit()
 
 def tambah_produk():
     produk = pd.read_csv('produk_toko.csv')
@@ -337,4 +339,4 @@ def kelola_produk_admin():
         clear_terminal()
         kelola_produk_admin()
 
-menu_admin()
+# def jual_produk()
