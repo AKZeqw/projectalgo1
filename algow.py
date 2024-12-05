@@ -14,7 +14,7 @@ def coba():
     return produk1
 
 
-def log_transaksi(username, produk, jumlah, total_harga, alamat, status, alasan):
+def transaksi(username, produk, jumlah, total_harga, alamat, status, alasan):
     waktu = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
     transaksi = {
         'Username': username,
@@ -46,7 +46,7 @@ def pembelian(username):
                     print("Produk habis. Pembelian ditolak.")
                     alasan = "Stok Habis"
                     status = "Ditolak"
-                    log_transaksi(username, produkk[1], 0, 0, "-", status, alasan)
+                    transaksi(username, produkk[1], 0, 0, "-", status, alasan)
                     break
                 else:
                     jumlah = int(input("Masukkan jumlah pembelian: "))
@@ -75,7 +75,7 @@ def pembelian(username):
         if konfirmasi == 'y':
             alamat = input("Masukkan alamat pengiriman: ")
             for produk_dibeli in daftar_beli:
-                log_transaksi(username, produk_dibeli[0], produk_dibeli[1], produk_dibeli[2], alamat, "Menunggu Konfirmasi", "")
+                transaksi(username, produk_dibeli[0], produk_dibeli[1], produk_dibeli[2], alamat, "Menunggu Konfirmasi", "")
             produk_toko = pd.read_csv('produk_toko.csv')
             for produk_dibeli in daftar_beli:
                 produk_toko.loc[produk_toko['Produk'] == produk_dibeli[0], 'Stok'] -= produk_dibeli[1]
