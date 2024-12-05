@@ -16,12 +16,32 @@ produk = pd.read_csv('produk_toko.csv')
 # #         edit_nama_produk.add_row(baris)
 a = 2
 # # print(edit_nama_produk)
+# def test():
+#     while True:
+#         i = int(input())
+#         if i == 1:
+#             print("t")
+#             continue
+#         elif i == 2:
+#             print("2")
+#             continue
+#         else:
+#             break
+#     while True:
+#         print("LOH")
+#         break
+# test()
+daftar_produk = pd.read_csv('produk_toko.csv')
 
-if a == 1:
-    b = 'Hwlll'
-elif a==2:
-    print(b)
-else:
-    print(b)
+id_produk = int(input("Masukkan ID Produk yang ingin dibeli (atau ketik 'keluar' untuk keluar): "))
+for baris in daftar_produk.values:
+    if baris[0] == id_produk and baris[5] == 'Tersedia':
+        print(baris)
 
-    print("hello") global
+# produk_dipilih = produk_dipilih.iloc[0]
+# tabel = PrettyTable()
+# tabel.field_names = ['Produk', 'Harga', 'Stok']
+# tabel.add_row([produk_dipilih['Produk'], produk_dipilih['Harga'], produk_dipilih['Stok']])
+# print(tabel)
+
+# print(produk_dipilih)

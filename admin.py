@@ -56,11 +56,11 @@ def menu_edit():
     if inputan_id_ubah.isdigit():
         inputan_id_ubah = int(inputan_id_ubah)
         if 0 < int(inputan_id_ubah) <= (len(produk)):
-            produk_dipilih = PrettyTable()
-            produk_dipilih.field_names = ['Id','Produk','Kategori','Harga','Stok','Status']
+            tabel_produk_dipilih = PrettyTable()
+            tabel_produk_dipilih.field_names = ['ID','Produk','Kategori','Harga','Stok','Status']
             for baris in produk.values:
                 if baris[0] == inputan_id_ubah:
-                    produk_dipilih.add_row(baris)
+                    tabel_produk_dipilih.add_row(baris)
             while True:
                 print(f'''
 =============================
@@ -81,9 +81,9 @@ ID PRODUK = {inputan_id_ubah}
                 if inputan.isdigit():
                     if inputan == '1':
                         clear_terminal()
-                        print(produk_dipilih)
+                        print(tabel_produk_dipilih)
                         inputan_nama_baru = input('Masukkan nama baru untuk produk: ').title()
-                        produk.loc[produk['Id'] == inputan_id_ubah, 'Produk'] = inputan_nama_baru
+                        produk.loc[produk['ID'] == inputan_id_ubah, 'Produk'] = inputan_nama_baru
                         inputan_konfirmasi = input(f'Apakah anda yakin mengubah nama dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
                         if inputan_konfirmasi == 'iya':
                             produk.to_csv('produk_toko.csv', index=False)
@@ -104,9 +104,9 @@ ID PRODUK = {inputan_id_ubah}
                             continue
                     elif inputan == '2':
                         clear_terminal()
-                        print(produk_dipilih)
+                        print(tabel_produk_dipilih)
                         inputan_kategori_baru = input('Masukkan kategori baru untuk produk: ').title()
-                        produk.loc[produk['Id'] == inputan_id_ubah, 'Kategori'] = inputan_kategori_baru
+                        produk.loc[produk['ID'] == inputan_id_ubah, 'Kategori'] = inputan_kategori_baru
                         inputan_konfirmasi = input(f'Apakah anda yakin mengubah kategori dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
                         if inputan_konfirmasi == 'iya':
                             produk.to_csv('produk_toko.csv', index=False)
@@ -127,10 +127,10 @@ ID PRODUK = {inputan_id_ubah}
                             continue
                     elif inputan == '3':
                         clear_terminal()
-                        print(produk_dipilih)
+                        print(tabel_produk_dipilih)
                         inputan_harga_baru = input('Masukkan harga baru untuk produk: ').title()
                         try:
-                            produk.loc[produk['Id'] == inputan_id_ubah, 'Harga'] = int(inputan_harga_baru)
+                            produk.loc[produk['ID'] == inputan_id_ubah, 'Harga'] = int(inputan_harga_baru)
                             inputan_konfirmasi = input(f'Apakah anda yakin mengubah harga dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
                             if inputan_konfirmasi == 'iya':
                                 produk.to_csv('produk_toko.csv', index=False)
@@ -155,10 +155,10 @@ ID PRODUK = {inputan_id_ubah}
                             continue
                     elif inputan == '4':
                         clear_terminal()
-                        print(produk_dipilih)
+                        print(tabel_produk_dipilih)
                         inputan_stok_baru = input('Masukkan stok baru untuk produk: ').title()
                         try:
-                            produk.loc[produk['Id'] == inputan_id_ubah, 'Stok'] = int(inputan_stok_baru)
+                            produk.loc[produk['ID'] == inputan_id_ubah, 'Stok'] = int(inputan_stok_baru)
                             inputan_konfirmasi = input(f'Apakah anda yakin mengubah stok dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
                             if inputan_konfirmasi == 'iya':
                                 produk.to_csv('produk_toko.csv', index=False)
@@ -184,10 +184,10 @@ ID PRODUK = {inputan_id_ubah}
                             continue
                     elif inputan == '5':
                         clear_terminal()
-                        print(produk_dipilih)
+                        print(tabel_produk_dipilih)
                         inputan_status_baru = input('Masukkan status baru untuk produk (Tersedia/Tidak Tersedia): ').title()
                         if inputan_status_baru == 'Tersedia' or inputan_status_baru == 'Tidak Tersedia':
-                            produk.loc[produk['Id'] == inputan_id_ubah, 'Status'] = inputan_status_baru
+                            produk.loc[produk['ID'] == inputan_id_ubah, 'Status'] = inputan_status_baru
                             inputan_konfirmasi = input(f'Apakah anda yakin mengubah status dari produk dengan id {inputan_id_ubah}? (iya/tidak): ').lower()
                             if inputan_konfirmasi == 'iya':
                                 produk.to_csv('produk_toko.csv', index=False)
@@ -252,9 +252,9 @@ def tambah_produk():
                 clear_terminal()
                 if stok.isdigit():
                     id = len(produk) + 1
-                    produk_baru = pd.DataFrame([[id,nama_produk,kategori,harga,stok,'Tersedia']], columns=['Id','Produk','Kategori','Harga','Stok','Status'])
+                    produk_baru = pd.DataFrame([[id,nama_produk,kategori,harga,stok,'Tersedia']], columns=['ID','Produk','Kategori','Harga','Stok','Status'])
                     tabel_tambah_produk = PrettyTable()
-                    tabel_tambah_produk.field_names = ['Id','Produk','Kategori','Harga','Stok','Status']
+                    tabel_tambah_produk.field_names = ['ID','Produk','Kategori','Harga','Stok','Status']
                     tabel_tambah_produk.add_row([id,nama_produk,kategori,harga,stok,'Tersedia'])
                     print(tabel_tambah_produk)
                     a = 1

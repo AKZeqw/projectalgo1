@@ -1,4 +1,4 @@
-Id,Produk,Kategori,Harga,Stok,Status
+ID,Produk,Kategori,Harga,Stok,Status
 1,Jagung,Sayur,20000,10,Tersedia
 2,Padi,Petani,20000,100,Tersedia
 3,Kopi,Kapas,100,100,Tersedia
