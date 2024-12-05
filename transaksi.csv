@@ -1,6 +1,5 @@
-Id,Produk,Jumlah,Total Harga,Alamat,Waktu,Status,Alasan
-1,Jagung,50,100000,Jember,12/12/2025 19.00,Menunggu Konfirmasi,
-1,Jagung,50,100000,Jember,12/12/2025 19.00,Ditolak,Stok Habis
-1,Jagung,50,100000,Jember,12/12/2025 19.00,Diterima,
-1,Jagung,50,100000,Jember,12/12/2025 19.30,Dikirim,
-1,Jagung,50,100000,Jember,12/12/2025 19.45,Terkirim,
+Id,Produk,Jumlah,Total Harga,Alamat,Waktu,Status
+1,Jagung,50,100000,Jember,12/12/2025 19.00,Menunggu Konfirmasi
+1,Jagung,50,100000,Jember,12/12/2025 19.00,Ditolak
+1,Jagung,50,100000,Jember,12/12/2025 19.00,Diterima
+
