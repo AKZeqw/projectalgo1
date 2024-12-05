@@ -15,7 +15,7 @@ def coba():
 
 
 def transaksi(username, produk, jumlah, total_harga, alamat, status, alasan):
-    waktu = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
+    waktu = dt.datetime.now()
     transaksi = {
         'Username': username,
         'Produk': produk,
