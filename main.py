@@ -167,11 +167,16 @@ def pembelian(username):
     while True:
         try:
             clear_terminal()
-            daftar_produk_pembeli(username)
+            daftar = PrettyTable()
+            daftar.field_names = ['Id', 'Produk', 'Kategori', 'Harga', 'Stok']
+            produk = pd.read_csv('produk_toko.csv')
+            for baris_produk in produk.values:
+                if baris_produk[5] == 'Tersedia':
+                    daftar.add_row([baris_produk[0], baris_produk[1], baris_produk[2], baris_produk[3], baris_produk[4]])
+            print(daftar)
             id_produk = input("Masukkan ID Produk yang ingin dibeli (atau ketik 'keluar' untuk keluar): ")
             if id_produk.lower() == 'keluar':
                 kembali()
-                clear_terminal()
                 menu_pembeli(username)
                 break
             elif not id_produk.isdigit():
@@ -180,15 +185,14 @@ def pembelian(username):
                 continue
 
             id_produk = int(id_produk)
-            produk_dipilih = daftar_produk.loc[
-                (daftar_produk['ID'] == id_produk) & 
-                (daftar_produk['Status'].str.lower() == 'tersedia')
-            ]
+            produk_dipilih = produk[produk['ID'] == id_produk]
+            produk_dipilih_tersedia = produk_dipilih[produk_dipilih['Status'] == 'Tersedia']
 
-            if produk_dipilih.empty:
-                print("Produk tidak ditemukan")
+            if produk_dipilih_tersedia.empty:
+                print("Produk tidak tersedia atau ID tidak valid")
                 kembali()
                 continue
+
             else:
                 clear_terminal()
                 produk_dipilih = produk_dipilih.iloc[0]
@@ -234,16 +238,17 @@ def pembelian(username):
         print(tabel_pembelian)
         lanjut = input("Apakah Anda yakin membeli? (iya/tidak): ").lower()
         if lanjut == 'tidak': 
-            clear_terminal() 
             kembali()
+            pembelian(username)
         elif lanjut == 'iya':
             daftar_produk.loc[daftar_produk['ID'] == id_produk, 'Stok'] -= jumlah
-            daftar_produk.to_csv('produk_toko.csv', index=False)
             alamat = input("Masukkan alamat pengiriman: ")
             for pembelian in daftar_beli:
                 transaksi(username, pembelian[0], pembelian[1], pembelian[2], alamat, 'Diproses')
             print("Pembelian berhasil! Terima kasih.")
+            daftar_produk.to_csv('produk_toko.csv', index=False)
             kembali()
+            menu_pembeli(username)
         else:
             print("masukkan yang benar!")
             kembali()
@@ -289,6 +294,7 @@ Selamat datang, {username}!
             break
         else:
             print("Pilihan tidak valid!")
+            kembali()
             continue
 
 menu_awal()
