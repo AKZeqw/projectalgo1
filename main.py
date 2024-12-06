@@ -272,7 +272,8 @@ def menu_pembeli(username):
 1. Lihat List Produk dan Harga
 2. Lakukan Pembelian
 3. Lihat Riwayat Transaksi
-4. Keluar
+4. Kembali
+5. Keluar
 ==========================================================================
 Selamat datang, {username}!
 ==========================================================================
@@ -292,6 +293,9 @@ Selamat datang, {username}!
             riwayat_transaksi_pembeli(username)
             break
         elif pilihan == '4':
+            clear_terminal()
+            menu_awal()
+        elif pilihan == '5':
             clear_terminal()
             kembali()
             break
