@@ -1,6 +1,6 @@
 ID,Produk,Kategori,Harga,Stok,Status
-1,Jagung,Sayur,20000,2,Tersedia
-2,Padi,Petani,20000,0,Tersedia
+1,Jagung,Sayur,20000,0,Tersedia
+2,Padi,Petani,20000,3,Tersedia
 3,Kopi,Kapas,100,0,Tersedia
 4,Kapas,Kapas,200,160,Tersedia
 5,Beras,Beras,200,160,Tersedia

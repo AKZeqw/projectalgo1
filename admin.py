@@ -95,18 +95,15 @@ ID PRODUK = {inputan_id_ubah}
                             produk.to_csv('produk_toko.csv', index=False)
                             print(f'Nama produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_nama_baru}.')
                             kembali()
-                            clear_terminal()
                             continue
                         elif inputan_konfirmasi == 'tidak':
                             print('Nama produk gagal diubah')
                             kembali()
-                            clear_terminal()
                             continue
                         else:
                             print('Inputan tidak sesuai')
                             print('Nama produk gagal diubah')
                             kembali()
-                            clear_terminal()
                             continue
                     elif inputan == '2':
                         clear_terminal()
@@ -118,18 +115,15 @@ ID PRODUK = {inputan_id_ubah}
                             produk.to_csv('produk_toko.csv', index=False)
                             print(f'Kategori produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_kategori_baru}.')
                             kembali()
-                            clear_terminal()
                             continue
                         elif inputan_konfirmasi == 'tidak':
                             print('Kategori produk gagal diubah')
                             kembali()
-                            clear_terminal()
                             continue
                         else:
                             print('Inputan tidak sesuai')
                             print('Kategori produk gagal diubah')
                             kembali()
-                            clear_terminal()
                             continue
                     elif inputan == '3':
                         clear_terminal()
@@ -142,22 +136,18 @@ ID PRODUK = {inputan_id_ubah}
                                 produk.to_csv('produk_toko.csv', index=False)
                                 print(f'Harga produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_harga_baru}.')
                                 kembali()
-                                clear_terminal()
                                 continue
                             elif inputan_konfirmasi == 'tidak':
                                 print('Harga produk gagal diubah')
                                 kembali()
-                                clear_terminal()
                                 continue
                             else:
                                 print('Inputan tidak sesuai')
                                 print('Harga produk gagal diubah')
                                 kembali()
-                                clear_terminal()
                         except ValueError:
                             print("Input harga produk tidak valid. Pastikan input berupa angka.")
                             kembali()
-                            clear_terminal()
                             continue
                     elif inputan == '4':
                         clear_terminal()
@@ -170,23 +160,19 @@ ID PRODUK = {inputan_id_ubah}
                                 produk.to_csv('produk_toko.csv', index=False)
                                 print(f'Stok produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_stok_baru}.')
                                 kembali()
-                                clear_terminal()
                                 continue
                             elif inputan_konfirmasi == 'tidak':
                                 print('Stok produk gagal diubah')
                                 kembali()
-                                clear_terminal()
                                 continue
                             else:
                                 print('Inputan tidak sesuai')
                                 print('Stok produk gagal diubah')
                                 kembali()
-                                clear_terminal()
                                 continue
                         except ValueError:
                             print("Input stok produk tidak valid. Pastikan input berupa angka.")
                             kembali()
-                            clear_terminal()
                             continue
                     elif inputan == '5':
                         clear_terminal()
@@ -199,23 +185,19 @@ ID PRODUK = {inputan_id_ubah}
                                 produk.to_csv('produk_toko.csv', index=False)
                                 print(f'Status produk dengan ID {inputan_id_ubah} berhasil diubah menjadi {inputan_status_baru}.')
                                 kembali()
-                                clear_terminal()
                                 continue
                             elif inputan_konfirmasi == 'tidak':
                                 print('Status produk gagal diubah')
                                 kembali()
-                                clear_terminal()
                                 continue
                             else:
                                 print('Inputan tidak sesuai')
                                 print('Status produk gagal diubah')
                                 kembali()
-                                clear_terminal()
                                 continue
                         else:
                             print('Inputan tidak valid')
                             kembali()
-                            clear_terminal()
                             continue
                     elif inputan == '6':
                         clear_terminal()
@@ -227,17 +209,14 @@ ID PRODUK = {inputan_id_ubah}
                     else:
                         print('Inputan tidak sesuai')
                         kembali()
-                        clear_terminal()
                         continue
         else:
             print('ID tidak ditemukan')
             kembali()
-            clear_terminal()
             menu_edit()
     else:
         print('Inputan harus berupa angka')
         kembali()
-        clear_terminal()
         menu_edit()
 
 def tambah_produk():
@@ -366,12 +345,10 @@ def kelola_produk_admin():
         else:
             print('Inputan tidak sesuai')
             kembali()
-            clear_terminal()
             kelola_produk_admin()
     else:
         print('Inputan harus berupa angka')
         kembali()
-        clear_terminal()
         kelola_produk_admin()
 
 menu_admin()
