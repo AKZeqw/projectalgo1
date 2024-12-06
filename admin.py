@@ -17,21 +17,21 @@ def kembali():
 def menu_admin():
     clear_terminal()
     print(r'''
-========================================================================
- __  __  ______  _   _  _    _             _____   __  __  _____  _   _ 
-|  \/  ||  ____|| \ | || |  | |     /\    |  __ \ |  \/  ||_   _|| \ | |
-| \  / || |__   |  \| || |  | |    /  \   | |  | || \  / |  | |  |  \| |
-| |\/| ||  __|  | . ` || |  | |   / /\ \  | |  | || |\/| |  | |  | . ` |
-| |  | || |____ | |\  || |__| |  / ____ \ | |__| || |  | | _| |_ | |\  |
-|_|  |_||______||_| \_| \____/  /_/    \_\|_____/ |_|  |_||_____||_| \_|
+===================================================================
+ __  __                                     _             _        
+|  \/  |                         /\        | |           (_)       
+| \  / |  ___  _ __   _   _     /  \     __| | _ __ ___   _  _ __  
+| |\/| | / _ \| '_ \ | | | |   / /\ \   / _` || '_ ` _ \ | || '_ \ 
+| |  | ||  __/| | | || |_| |  / ____ \ | (_| || | | | | || || | | |
+|_|  |_| \___||_| |_| \__,_| /_/    \_\ \__,_||_| |_| |_||_||_| |_|
 ''')
     print('''
-========================================================================
+===================================================================
 1. Mengelola Produk Toko
 2. Konfirmasi Pembelian
 2. Melihat Riwayat Transaksi
 3. Keluar
-========================================================================
+===================================================================
 ''')
 
     inputan = input('Pilih menu: [1-3]: ')
@@ -40,9 +40,10 @@ def menu_admin():
         kelola_produk_admin()
     elif inputan == '2':
         clear_terminal()
-        riwayat_transaksi_admin()
+        konfirmasi_pembelian()
     elif inputan == '3':
         clear_terminal()
+        riwayat_transaksi_admin()
     else:
         print('Piihan menu tidak ditemukan')
         menu_admin()
@@ -63,9 +64,14 @@ def menu_edit():
                     tabel_produk_dipilih.add_row(baris)
             while True:
                 print(f'''
-=============================
-          MENU EDIT
-=============================
+====================================================
+ __  __                       ______      _  _  _   
+|  \/  |                     |  ____|    | |(_)| |  
+| \  / |  ___  _ __   _   _  | |__     __| | _ | |_ 
+| |\/| | / _ \| '_ \ | | | | |  __|   / _` || || __|
+| |  | ||  __/| | | || |_| | | |____ | (_| || || |_ 
+|_|  |_| \___||_| |_| \__,_| |______| \__,_||_| \__|
+====================================================
 1. Edit Nama Produk
 2. Edit Kategori Produk
 3. Edit Harga Produk
@@ -73,9 +79,9 @@ def menu_edit():
 5. Edit Status Produk
 6. Kembali
 7. Keluar
-=============================
+====================================================
 ID PRODUK = {inputan_id_ubah}
-=============================
+====================================================
 ''')
                 inputan = input('Pilih Menu [1-7]: ')
                 if inputan.isdigit():
@@ -300,6 +306,36 @@ def daftar_produk():
     print(daftar)
     kembali()
     kelola_produk_admin()
+
+# def riwayat_transaksi_admin():
+def konfirmasi_pembelian():
+    riwayat = pd.read_csv('riwayat_transaksi.csv')
+    tabel = PrettyTable()
+    tabel.field_names = ['ID','Username','Produk','Jumlah','Total Harga','Alamat','Waktu','Status']
+    filter_id = []
+    for baris in riwayat.values:
+        if baris[7] == 'Menunggu Konfirmasi':
+            tabel.add_row(baris)
+            filter_id.append([baris])
+    print(tabel)
+    id_transaksi = int(input("Masukkan ID transaksi yang ingin dikirim: "))
+    if id_transaksi in filter_id:
+        while True:
+            konfirmasi = input(f'apakah anda yakin ingin mengirim produk dengan ID transaksi {id_transaksi}? (iya/tidak)').lower()
+            if konfirmasi == 'iya':
+                riwayat.loc[riwayat['ID'] == id_transaksi, 'Status'] = 'Dikirim'
+                riwayat.to_csv('riwayat_transaksi.csv', index=False)
+                print(f"Status transaksi dengan ID {id_transaksi} berhasil diubah menjadi Diterima.")
+                break
+            elif konfirmasi == 'tidak':
+                print('Status konfirmasi tidak diubah')
+                kembali()
+                konfirmasi_pembelian()
+                break
+    else:
+        print(f"Transaksi dengan ID {id_transaksi} tidak ditemukan.")
+    kembali()
+
 
 def kelola_produk_admin():
     produk = pd.read_csv('produk_toko.csv')

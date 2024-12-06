@@ -16,11 +16,11 @@ def pembelian(username):
             continue
 
         id_produk = int(id_produk)
-        produk_ditemukan = False
+        # produk_ditemukan = False
 
-        for baris in daftar_produk.values:  # Iterasi setiap baris
-            if baris[0] == id_produk and baris[5] == 'Tersedia':  # Cocok dengan ID dan status tersedia
-                produk_ditemukan = True
+        for baris in daftar_produk.values:
+            if baris[0] == id_produk and baris[5] == 'Tersedia':
+                # produk_ditemukan = True
                 produk = baris[1]
                 harga = baris[3]
                 stok = baris[4]
@@ -32,12 +32,16 @@ def pembelian(username):
 
                 try:
                     jumlah = int(input("Masukkan jumlah pembelian: "))
-                    if jumlah <= 0:  # Jumlah tidak valid
+                    if jumlah <= 0:
                         print("Jumlah pembelian harus lebih besar dari 0.")
                         kembali()
-                    elif jumlah > stok:  # Melebihi stok
+                        clear_terminal()
+                        continue
+                    elif jumlah > stok:
                         print("Jumlah melebihi stok. Silakan masukkan jumlah yang lebih kecil.")
                         kembali()
+                        clear_terminal()
+                        continue
                     else:
                         total_harga = jumlah * harga
                         total_pembelian += total_harga
@@ -46,21 +50,24 @@ def pembelian(username):
                         print(f"Total harga untuk {produk}: {total_harga}")
 
                         lanjut = input("Apakah Anda ingin membeli produk lain? [iya/tidak]: ").lower()
-                        if lanjut == 'tidak':  # Selesai
+                        if lanjut == 'tidak':
                             break
-                        elif lanjut != 'iya':  # Input tidak valid
+                        elif lanjut != 'iya':
                             print("Input tidak valid. Kembali ke menu pembelian.")
                             kembali()
+                        else:
+                            print('Inputan tidak valid')
+
                 except ValueError:
                     print("Input jumlah pembelian tidak valid. Harap masukkan angka.")
                     kembali()
-                break  # Keluar dari loop setelah produk ditemukan
+                break
 
-        if not produk_ditemukan:  # Jika tidak ada produk yang cocok
-            print("Produk tidak ditemukan atau stok habis.")
-            kembali()
+            else:
+                print("Produk tidak ditemukan")
+                kembali()
 
-    if daftar_beli:  # Menampilkan daftar pembelian
+    if daftar_beli:
         tabel_pembelian = PrettyTable()
         tabel_pembelian.field_names = ['Produk', 'Jumlah', 'Harga']
         for baris in daftar_beli:

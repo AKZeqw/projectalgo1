@@ -2,14 +2,15 @@ import csv
 import pandas as pd
 import datetime as dt
 import os
-from admin import menu_admin
 
 teks_username = r'''
- _____           _ __  __            _   
-|_   _|_ _ _ __ (_)  \/  | __ _ _ __| |_ 
-  | |/ _` | '_ \| | |\/| |/ _` | '__| __|.
-  | | (_| | | | | | |  | | (_| | |  | |_ 
-  |_|\__,_|_| |_|_|_|  |_|\__,_|_|   \__|'''
+ _______         _            _______                _ 
+|__   __|       | |          |__   __|              (_)
+   | |     ___  | | __  ___     | |     __ _  _ __   _ 
+   | |    / _ \ | |/ / / _ \    | |    / _` || '_ \ | |
+   | |   | (_) ||   < | (_) |   | |   | (_| || | | || |
+   |_|    \___/ |_|\_\ \___/    |_|    \__,_||_| |_||_| 
+'''
 
 def clear_terminal():
     os.system('cls')
@@ -21,19 +22,17 @@ def login():
         baris_user = users[users['username'] == username]
         password = input('Masukkan Password: ')
         if password == baris_user['password'].values[0]:
-            role = baris_user['role'].values[0] #Mengecek role
+            role = baris_user['role'].values[0]
             if role == 'admin':
                 menu_admin()
-            elif role == 'petani':
-                'menu petani'
             elif role == 'pembeli':
-                menu_pembeli
+                menu_pembeli(username)
         else:
-            print('Password salah') #Jika password salah
+            print('Password salah')
             kembali()
             menu_awal()
     else:
-        print('Username tidak ditemukan') #Jika username salah
+        print('Username tidak ditemukan')
         kembali()
         menu_awal()
 
@@ -52,9 +51,9 @@ def daftar():
     else:
         df = pd.read_csv('users.csv')
     print('Kosongi username jika ingin kembali ke menu awal')
-    username = input('Masukkan username(Harus lebih dari 4 huruf): ')
+    username = input('Masukkan username (Harus lebih dari 4 huruf): ')
     if username == '':
-        clear_terminal()
+        kembali()
         menu_awal()
     elif len(username) < 5:
         print('Username tidak memenuhi syarat')
@@ -79,14 +78,26 @@ def daftar():
                 
                 df.to_csv('users.csv', index=False)
                 print('Pengguna berhasil didaftarkan!')
+                kembali()
+                menu_awal()
 
 
 def menu_awal():
-    print(teks_username)
-    print('''
+    clear_terminal()
+    print(r'''
+============================================================
+ __  __                                                  _ 
+|  \/  |                         /\                     | |
+| \  / |  ___  _ __   _   _     /  \   __      __  __ _ | |
+| |\/| | / _ \| '_ \ | | | |   / /\ \  \ \ /\ / / / _` || |
+| |  | ||  __/| | | || |_| |  / ____ \  \ V  V / | (_| || |
+|_|  |_| \___||_| |_| \__,_| /_/    \_\  \_/\_/   \__,_||_|
+============================================================
 1. Registrasi
 2. Login
-3. Keluar ''')
+3. Keluar
+============================================================
+''')
     inputan = input('Silahkan pilih menu [1-3]: ')
     if inputan == '1':
         clear_terminal()
@@ -97,9 +108,8 @@ def menu_awal():
     elif inputan == '3':
         clear_terminal()
     else:
-        clear_terminal()
         print('Pilihan menu tidak ditemukan!')
+        kembali()
         menu_awal()
 
 menu_awal()
-#Diskon petani untuk pembelian
