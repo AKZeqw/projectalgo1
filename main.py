@@ -132,7 +132,7 @@ def transaksi(username, produk, jumlah, total_harga, alamat, status):
     transaksi_df = pd.DataFrame([transaksi])
     riwayat = pd.concat([riwayat, transaksi_df], ignore_index=True)
     riwayat['ID'] = riwayat['ID'].astype(int)
-    riwayat = riwayat[['ID', 'Username', 'Produk', 'Jumlah', 'Total Harga', 'Alamat', 'Waktu', 'Status']]  # Memastikan ID berada di depan
+    riwayat = riwayat[['ID', 'Username', 'Produk', 'Jumlah', 'Total Harga', 'Alamat', 'Waktu', 'Status']]
     riwayat.to_csv('riwayat_transaksi.csv', index=False)
 
 def riwayat_transaksi_pembeli(username):
