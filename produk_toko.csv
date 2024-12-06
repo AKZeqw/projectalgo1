@@ -1,9 +1,62 @@
 ID,Produk,Kategori,Harga,Stok,Status
-1,Jagung,Sayur,20000,2,Tersedia
-2,Padi,Petani,20000,0,Tersedia
-3,Kopi,Kapas,100,0,Tersedia
-4,Kapas,Kapas,200,160,Tersedia
-5,Beras,Beras,200,160,Tersedia
-6,Cabe,Cabe,200,200,Tidak Tersedia
-7,Pupuk,Pupuk,12000,20,Tersedia
-8,Traktor,Alat,1,1,Tidak Tersedia
+1,Pestisida Organik,Pestisida,50000,25,Tersedia
+2,Bibit Cabai Merah,Bibit,10000,100,Tersedia
+3,Cangkul Baja,Alat Bertani,150000,15,Tersedia
+4,Pupuk Kompos 5kg,Pupuk,30000,50,Tersedia
+5,Tomat Segar 1kg,Sayur,15000,30,Tersedia
+6,Bibit Mangga,Bibit,25000,20,Tersedia
+7,Sekop Kecil,Alat Bertani,20000,40,Tersedia
+8,Pupuk Urea 1kg,Pupuk,25000,60,Tersedia
+9,Apel Malang 1kg,Buah,30000,35,Tersedia
+10,Selada Segar 1kg,Sayur,12000,40,Tersedia
+11,Alat Semprot Hama 2L,Alat Bertani,175000,10,Tersedia
+12,Pestisida Kimia,Pestisida,70000,20,Tersedia
+13,Pupuk Cair Organik,Pupuk,40000,30,Tersedia
+14,Bibit Jagung Hibrida,Bibit,15000,80,Tersedia
+15,Jeruk Nipis 1kg,Buah,20000,25,Tersedia
+16,Bibit Terong,Bibit,12000,50,Tersedia
+17,Keranjang Panen 10L,Alat Bertani,75000,15,Tersedia
+18,Kentang Segar 1kg,Sayur,18000,30,Tersedia
+19,Bibit Durian,Bibit,35000,10,Tersedia
+20,Pisau Cangkul,Alat Bertani,60000,25,Tersedia
+21,Mangga Harum Manis 1kg,Buah,35000,30,Tersedia
+22,Bibit Tomat,Bibit,8000,75,Tersedia
+23,Alat Penyiram Tanaman,Alat Bertani,50000,25,Tersedia
+24,Pupuk Kandang 10kg,Pupuk,45000,40,Tersedia
+25,Semangka Segar 1kg,Buah,10000,50,Tersedia
+26,Kacang Panjang 1kg,Sayur,15000,30,Tersedia
+27,Bibit Alpukat,Bibit,30000,20,Tersedia
+28,Sabit Baja,Alat Bertani,80000,20,Tersedia
+29,Pupuk NPK 5kg,Pupuk,50000,35,Tersedia
+30,Anggur Hijau 1kg,Buah,60000,25,Tersedia
+31,Terong Ungu 1kg,Sayur,17000,30,Tersedia
+32,Bibit Pepaya,Bibit,20000,40,Tersedia
+33,Sarung Tangan Bertani,Alat Bertani,25000,50,Tersedia
+34,Pestisida Nabati,Pestisida,55000,25,Tersedia
+35,Pupuk Dolomit 10kg,Pupuk,65000,30,Tersedia
+36,Bibit Melon,Bibit,15000,50,Tersedia
+37,Cabai Rawit Segar 1kg,Sayur,30000,20,Tersedia
+38,Bibit Jeruk Bali,Bibit,35000,15,Tersedia
+39,Cangkul Besi Ringan,Alat Bertani,120000,20,Tersedia
+40,Pupuk Organik Cair 1L,Pupuk,35000,30,Tersedia
+41,Keranjang Plastik Panen 20L,Alat Bertani,90000,10,Tersedia
+42,Sawi Hijau 1kg,Sayur,12000,25,Tersedia
+43,Bibit Stroberi,Bibit,25000,30,Tersedia
+44,Pestisida Anti Jamur,Pestisida,65000,15,Tersedia
+45,Brokoli Segar 1kg,Sayur,20000,30,Tersedia
+46,Bibit Jambu Kristal,Bibit,30000,25,Tersedia
+47,Pupuk Fosfat 5kg,Pupuk,40000,30,Tersedia
+48,Alat Penyiang Gulma,Alat Bertani,55000,15,Tersedia
+49,Salak Pondoh 1kg,Buah,25000,40,Tersedia
+50,Labu Siam 1kg,Sayur,18000,35,Tersedia
+51,Bibit Kelapa Sawit,Bibit,45000,15,Tersedia
+52,Alat Cangkul Mini,Alat Bertani,40000,25,Tersedia
+53,Pupuk Mikroba Cair 1L,Pupuk,50000,20,Tersedia
+54,Jeruk Manis 1kg,Buah,28000,30,Tersedia
+55,Bayam Segar 1kg,Sayur,10000,25,Tersedia
+56,Bibit Anggur Merah,Bibit,50000,10,Tersedia
+57,Pisau Tanam Lipat,Alat Bertani,35000,20,Tersedia
+58,Pupuk Magnesium 5kg,Pupuk,70000,15,Tersedia
+59,Durian Monthong 1kg,Buah,90000,20,Tersedia
+60,Labu Kuning 1kg,Sayur,25000,30,Tersedia
+

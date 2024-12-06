@@ -105,12 +105,14 @@ def menu_awal():
 
 
 def daftar_produk_pembeli(username):
+    clear_terminal()
     daftar = PrettyTable()
     daftar.field_names = ['Id', 'Produk', 'Kategori', 'Harga', 'Stok']
     produk = pd.read_csv('produk_toko.csv')
     for daftar_produk in produk.values:
         if daftar_produk[5] == 'Tersedia':
             daftar.add_row([daftar_produk[0], daftar_produk[1], daftar_produk[2], daftar_produk[3], daftar_produk[4]])
+    daftar.sortby = 'Kategori'
     print(daftar)
     kembali()
     menu_pembeli(username)
@@ -151,6 +153,7 @@ def riwayat_transaksi_pembeli(username):
     menu_pembeli(username)
 
 def pembelian(username):
+    clear_terminal()
     daftar_produk = pd.read_csv('produk_toko.csv')
     daftar_beli = []
     total_pembelian = 0
