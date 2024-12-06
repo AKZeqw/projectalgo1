@@ -4,17 +4,15 @@ import os
 from prettytable import PrettyTable
 from prettytable import from_csv
 
-teks_username = r'''
- _______         _            _______                _ 
-|__   __|       | |          |__   __|              (_)
-   | |     ___  | | __  ___     | |     __ _  _ __   _ 
-   | |    / _ \ | |/ / / _ \    | |    / _` || '_ \ | |
-   | |   | (_) ||   < | (_) |   | |   | (_| || | | || |
-   |_|    \___/ |_|\_\ \___/    |_|    \__,_||_| |_||_| 
-'''
-
 def clear_terminal():
     os.system('cls')
+
+def kembali():
+    inputan_kembali = input('Tekan enter untuk kembali...')
+    if inputan_kembali == '':
+        clear_terminal()
+    else:
+        kembali()
 
 def login():
     users = pd.read_csv('users.csv')
@@ -37,13 +35,6 @@ def login():
         print('Username tidak ditemukan')
         kembali()
         menu_awal()
-
-def kembali():
-    inputan_kembali = input('Tekan enter untuk kembali...')
-    if inputan_kembali == '':
-        clear_terminal()
-    else:
-        kembali()
 
 def daftar():
     if not os.path.exists('users.csv'):
