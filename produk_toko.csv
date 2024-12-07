@@ -1,7 +1,7 @@
 ID,Produk,Kategori,Harga,Stok,Status
-1,Pestisida Organik,Pestisida,50000,25,Tersedia
+1,Pestisida Organik,Pestisida,50000,15,Tersedia
 2,Bibit Cabai Merah,Bibit,10000,100,Tersedia
-3,Cangkul Baja,Alat Bertani,150000,15,Tersedia
+3,Cangkul Baja,Alat Bertani,150000,5,Tersedia
 4,Pupuk Kompos 5kg,Pupuk,30000,50,Tersedia
 5,Tomat Segar 1kg,Sayur,15000,30,Tersedia
 6,Bibit Mangga,Bibit,25000,20,Tersedia
@@ -59,4 +59,4 @@ ID,Produk,Kategori,Harga,Stok,Status
 58,Pupuk Magnesium 5kg,Pupuk,70000,15,Tersedia
 59,Durian Monthong 1kg,Buah,90000,20,Tersedia
 60,Labu Kuning 1kg,Sayur,25000,30,Tersedia
-
+61,Rumput Hijau,Makanan Hewan Alami,10000,100,Tersedia

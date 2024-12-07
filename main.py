@@ -593,7 +593,7 @@ def riwayat_transaksi_admin():
     transaksi_ditemukan = False
     for index in range(len(riwayat)):
         transaksi = riwayat.iloc[index]
-        if transaksi['Status'] == 'Diterima' or transaksi['Status'] == 'Ditolak':
+        if transaksi['Status'] == 'Dikirim' or transaksi['Status'] == 'Ditolak':
             tabel_riwayat.add_row([transaksi['ID'], transaksi['Username'], transaksi['Produk'], transaksi['Jumlah'], transaksi['Total Harga'], transaksi['Alamat'], transaksi['Waktu'], transaksi['Status']])
             transaksi_ditemukan = True
     if not transaksi_ditemukan:
